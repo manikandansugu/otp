@@ -7,8 +7,14 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({ origin: "*" }));
 app.use(express.json());
+
+// CORS is a security mechanism that allows web browsers to make cross-origin HTTP requests safely. This middleware adds appropriate CORS headers to the HTTP responses
+app.use(cors());
+
+// CORS preflight request handler for all routes
+app.options("*", cors());
+
 app.get("/api/msg", (req, res) => {
   res.status(200).json({ message: " hello robot !" });
 });
