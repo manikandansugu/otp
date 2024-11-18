@@ -1,12 +1,15 @@
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const app = express();
 
 app.use(cors({ origin: "*" }));
 app.use(express.json());
-app.get("/app/msg", (req, res) => {
+app.get("/api/msg", (req, res) => {
   res.status(200).json({ message: " hello robot !" });
 });
 
@@ -34,4 +37,5 @@ app.get("/api/sent-otp", async (req, res) => {
   }
 });
 
-app.listen(7000, () => console.log("port running on 7000"));
+const port = process.env.PORT || 7000;
+app.listen(port, () => console.log("port running on 7000"));
