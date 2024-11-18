@@ -6,6 +6,9 @@ const app = express();
 
 app.use(cors({ origin: "*" }));
 app.use(express.json());
+app.get("/app/msg", (req, res) => {
+  res.status(200).json({ message: " hello robot !" });
+});
 
 app.get("/api/sent-otp", async (req, res) => {
   try {
