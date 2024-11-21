@@ -39,7 +39,7 @@ app.get("/api/sent-otp", async (req, res) => {
   }
 });
 
-const port = process.env.PORT || 7000;
+const port = process.env.PORT || 9000;
 app.listen(port, "0.0.0.0", () =>
   console.log(`Server running on port ${port}`)
 );
